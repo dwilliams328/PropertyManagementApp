@@ -24,7 +24,6 @@ import retrofit2.Response
 class LoginActivity : AppCompatActivity(), AuthListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
 
         val binding: ActivityLoginBinding = DataBindingUtil.setContentView(this,R.layout.activity_login)
         val viewModel = ViewModelProviders.of(this).get(AuthViewModel::class.java)
@@ -38,34 +37,7 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     }
 
     private fun init() {
-//        button_login.setOnClickListener {
-//            var email = edit_text_email.text.toString()
-//            var password = edit_text_password.text.toString()
-//
-//            var signInBody = SignInBody(email = email, password = password)
-//
-//            var api = MyApi()
-//            api.loginUser(signInBody).enqueue(object : Callback<LoginResponse>{
-//                override fun onResponse(
-//                    call: Call<LoginResponse>,
-//                    response: Response<LoginResponse>
-//                ) {
-//                    Log.d("abc", response.message())
-//
-//                    if (response.code() == 200){
-//                        startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-//                    }
-//                    else{
-//                        Toast.makeText(applicationContext,"Login Failed", Toast.LENGTH_SHORT).show()
-//                    }
-//
-//                }
-//
-//                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                    Toast.makeText(applicationContext,t.message, Toast.LENGTH_LONG).show()
-//                }
-//            })
-//        }
+
     }
 
     override fun onStarted() {
@@ -75,7 +47,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     override fun onSuccess(loginResponse: LiveData<String>) {
         loginResponse.observe(this, Observer {
             toast(it)
+            startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
         })
+
     }
 
     override fun onFailure(message: String) {

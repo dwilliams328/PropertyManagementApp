@@ -13,7 +13,10 @@ interface MyApi {
     fun getUsers(): Call<UsersResponse>
 
     @POST("auth/register")
-    fun registerUser(@Body info: RegisterBody): Call<RegisterResponse>
+    fun registerUser(@Field("name") name: String,
+                     @Field("type") type: String,
+                     @Field("email") email: String,
+                     @Field("password") password: String): Call<RegisterResponse>
 
     @FormUrlEncoded
     @POST("auth/login")
