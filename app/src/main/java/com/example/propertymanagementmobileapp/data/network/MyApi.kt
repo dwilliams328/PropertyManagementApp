@@ -1,15 +1,11 @@
-package com.example.propertymanagementmobileapp.network
+package com.example.propertymanagementmobileapp.data.network
 
 import com.example.propertymanagementmobileapp.app.Config
-import com.example.propertymanagementmobileapp.app.Endpoints
 import com.example.propertymanagementmobileapp.models.*
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface MyApi {
 
@@ -19,8 +15,10 @@ interface MyApi {
     @POST("auth/register")
     fun registerUser(@Body info: RegisterBody): Call<RegisterResponse>
 
+    @FormUrlEncoded
     @POST("auth/login")
-    fun loginUser(@Body info: SignInBody): Call<LoginResponse>
+    fun loginUser(@Field("email") email: String,
+                  @Field("password") password: String): Call<LoginResponse>
 
 
     companion object{

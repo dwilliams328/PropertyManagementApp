@@ -1,11 +1,12 @@
-package com.example.propertymanagementmobileapp.activities
+package com.example.propertymanagementmobileapp.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import com.example.propertymanagementmobileapp.R
+import com.example.propertymanagementmobileapp.ui.auth.LoginActivity
+import com.example.propertymanagementmobileapp.ui.auth.RegisterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -24,10 +25,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             button_login -> {
-                startActivity(Intent(this,LoginActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
             }
             button_sign_up -> {
-                startActivity(Intent(this,RegisterActivity::class.java))
+                startActivity(Intent(this, RegisterActivity::class.java))
             }
         }
     }

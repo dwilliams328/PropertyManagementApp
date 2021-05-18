@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PropertyManagementMobileApp"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.HomeActivity"></activity>
-        <activity android:name=".activities.Home" />
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.RegisterActivity" />
-        <activity android:name=".activities.MainActivity">
+        <activity android:name="com.example.propertymanagementmobileapp.ui.activities.HomeActivity"></activity>
+        <activity android:name="com.example.propertymanagementmobileapp.ui.activities.Home" />
+        <activity android:name="com.example.propertymanagementmobileapp.ui.auth.LoginActivity" />
+        <activity android:name="com.example.propertymanagementmobileapp.ui.auth.RegisterActivity" />
+        <activity android:name="com.example.propertymanagementmobileapp.ui.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

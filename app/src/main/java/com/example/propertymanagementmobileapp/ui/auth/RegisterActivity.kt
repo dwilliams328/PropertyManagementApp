@@ -1,4 +1,4 @@
-package com.example.propertymanagementmobileapp.activities
+package com.example.propertymanagementmobileapp.ui.auth
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.propertymanagementmobileapp.R
-import com.example.propertymanagementmobileapp.models.LoginResponse
 import com.example.propertymanagementmobileapp.models.RegisterBody
 import com.example.propertymanagementmobileapp.models.RegisterResponse
-import com.example.propertymanagementmobileapp.models.SignInBody
-import com.example.propertymanagementmobileapp.network.MyApi
+import com.example.propertymanagementmobileapp.data.network.MyApi
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.edit_text_email
 import kotlinx.android.synthetic.main.activity_login.edit_text_password
@@ -47,10 +45,10 @@ class RegisterActivity : AppCompatActivity() {
 
                     if (response.code() == 200){
                         Toast.makeText(applicationContext,"Successfully Registered", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
+                        startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                     }
                     else{
-                        Toast.makeText(applicationContext,"Registration", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext,"Error Registering User", Toast.LENGTH_SHORT).show()
                     }
 
                 }
